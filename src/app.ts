@@ -19,7 +19,7 @@ function main() {
     let output = '';
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
-        const needBreak = i < lines.length - 1 && lines[i + 1].length == 0;
+        const needBreak = i < lines.length - 1 && lines[i + 1].length == 0 || line.length == 0;
         output += line + (needBreak ? '\n' : '');
     }
     fs.writeFileSync(formattedFilePath, output);
