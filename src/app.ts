@@ -17,11 +17,14 @@ function main() {
 
     const lines = content.split('\n').map(line => line.trim());
     let output = '';
+    let wordCount = 0;
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
+        wordCount += line.length > 0 ? line.split(' ').length : 0;
         const needBreak = i < lines.length - 1 && lines[i + 1].length == 0 || line.length == 0;
         output += line + (needBreak ? '\n' : ' ');
     }
+    console.log('Word count: ' + wordCount);
     fs.writeFileSync(formattedFilePath, output);
 }
 
